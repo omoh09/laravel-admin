@@ -7,7 +7,7 @@
 
     <div class="py- m-6">
         @can('create post')
-        <a href="#" class="m-2 p-2 bg-green-500 rounded-lg">
+        <a href="{{ route('post.create') }}" class="m-2 p-2 bg-green-500 rounded-lg">
             CReate Post
         </a>
         @endcan
@@ -30,12 +30,12 @@
                             <td class="px-6 py-4 whitespace-nowrap">{{ $post['title']}}</td>
                             <td class="px-6 py-4 text-right text-sm">
                                 @can('edit post')
-                                <a href="#" class="m-2 p-2 bg-green-500 rounded-lg">
+                                <a href="{{ route('post.edit', $post->id) }}" class="m-2 p-2 bg-green-500 rounded-lg">
                                     Edit
                                 </a>
                                 @endcan
                                 @can ('publish post')
-                                <a href="#" class="m-2 p-2 bg-green-500 rounded-lg">
+                                <a href="{{ route('post.edit', $post->id) }}" class="m-2 p-2 bg-green-500 rounded-lg">
                                     Publish
                                 </a>
                                 @endcan

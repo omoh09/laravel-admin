@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -29,3 +30,6 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__.'/auth.php';
+
+Route::get('post/create', [PostController::class, 'create'])->name("post.create")->middleware('role:admin');
+Route::get('post/{id}}/edit', [PostController::class, 'edit'])->name("post.edit")->middleware('role:admin|publisher');
